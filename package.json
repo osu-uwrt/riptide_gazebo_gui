@@ -1,14 +1,32 @@
 {
   "name": "riptide_gazebo_gui",
   "version": "1.0.0",
-  "description": "",
+  "description": "Application used to control the Ohio State Underwater Robotics Team's Simulator.",
   "main": "index.js",
+  "icon": "icon.png",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder --win --mac",
+    "dist-linux": "electron-builder",
+    "dist-win": "electron-builder --win",
+    "dist-mac": "electron-builder --mac"
   },
-  "author": "",
+  "author": "Anden Acitelli <a.acitelli@gmail.com>",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^10.1.1"
+    "electron": "^10.1.1",
+    "electron-builder": "^22.9.1"
+  },
+  "build": {
+    "appId": "com.osuuwrt.simulatorgui",
+    "linux": {
+      "icon": "icon.png",
+      "category": "Utility",
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    }
   }
 }
