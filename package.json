@@ -7,10 +7,7 @@
   "scripts": {
     "start": "electron .",
     "pack": "electron-builder --dir",
-    "dist": "electron-builder --win --mac",
-    "dist-linux": "electron-builder",
-    "dist-win": "electron-builder --win",
-    "dist-mac": "electron-builder --mac"
+    "dist": "electron-builder"
   },
   "author": "Anden Acitelli <a.acitelli@gmail.com>",
   "license": "ISC",

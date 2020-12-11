@@ -11,9 +11,7 @@ If you are looking for an end user-usable copy, development isn't yet far enough
 From there you should be good to go!
 
 ## Development - Run
-Run `yarn start` in terminal. This will start up the development version of the repostory. 
-
-Note that you can use the Chrome web developer tools via the `Control-Shift-I` keyboard shortcut.
+Run `yarn start` in terminal. This will start up the development version of the repostory. Note that you can use the Chrome web developer tools via the `Control-Shift-I` keyboard shortcut and that to get code changes to run you will have to run `yarn start` again (though it's possible to do hot reloading; pretty sure Scylla has it and it's probably a brief google away).
 
 ## Development - Build
-Run `yarn dist-linux` in terminal. This will make `AppImage` and `deb` files which will show up in a newly created `dist` directory.
+Run `yarn dist` in terminal. This will make `AppImage` and `deb` files by the rules governed in `package.json`'s `build` field. The end `AppImage` and `deb` will show up in a newly created `dist` directory.
