@@ -4,9 +4,9 @@ The development repository for the GUI for our simulator. Eventually this will l
 If you are looking for an end user-usable copy, development isn't yet far enough along for that. When it is, there will be a release on the GitHub page that provides a .deb file or similar.
 
 ## Development - Set Up
-1. Install Node.js; any recent LTS version should do fine.
+1. Install Node.js; Any recent LTS version should work, but v14.15.1 was used for development. 
 2. Clone the repository to anywhere on your computer
-3. Install `yarn`; our build system uses it instead of npm. You can find instructions [here](https://classic.yarnpkg.com/en/docs/install/#debian-stable).
+3. Install `yarn`; our build system uses it instead of npm. You can find instructions [here](https://classic.yarnpkg.com/en/docs/install/#debian-stable). Any recent version should work, but v1.22.5 was used for development.
 4. Execute `yarn` in terminal. Ensure you are in this directory. This will install all the npm packages outlined in the `package.json` file.
 5. This repository uses SCSS, a superset of CSS that supports things like nesting selectors, to do styling. It needs compiled to .css for the browser to actually read it; I recommend you use the [Live Sass Compiler](https://marketplace.visualstudio.com/items?itemName=ritwickdey.live-sass) extension to do this, and just start that up at the beginning of development.
 
