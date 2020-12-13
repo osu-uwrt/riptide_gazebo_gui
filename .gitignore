@@ -1,2 +1,7 @@
+# Electron/npm
 node_modules
 dist
+
+# SCSS
+*.css
+*.css.map
