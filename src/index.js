@@ -9,9 +9,9 @@ function createWindow() {
             webSecurity: false // Should be true when deployed; we have issues with images in development if it isn't false
         }
     })
-
+    
+    win.loadFile("src/index.html")
     win.maximize()
-    win.loadFile("index.html")
 
     // TODO: Disable when building
     win.webContents.openDevTools()
