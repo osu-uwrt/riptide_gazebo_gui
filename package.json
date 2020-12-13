@@ -2,8 +2,8 @@
   "name": "riptide_gazebo_gui",
   "version": "1.0.0",
   "description": "Application used to control the Ohio State Underwater Robotics Team's Simulator.",
-  "main": "index.js",
-  "icon": "icon.png",
+  "main": "src/index.js",
+  "icon": "static/icon.png",
   "scripts": {
     "start": "electron .",
     "pack": "electron-builder --dir",
