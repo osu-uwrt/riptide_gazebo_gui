@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Application used to control the Ohio State Underwater Robotics Team's Simulator.",
   "main": "src/index.js",
-  "icon": "static/icon.png",
+  "icon": "src/icon.png",
   "scripts": {
     "start": "electron .",
     "pack": "electron-builder --dir",
@@ -18,7 +18,7 @@
   "build": {
     "appId": "com.osuuwrt.simulatorgui",
     "linux": {
-      "icon": "icon.png",
+      "icon": "src/icon.png",
       "category": "Utility",
       "target": [
         "AppImage",
