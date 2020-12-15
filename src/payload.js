@@ -1,3 +1,8 @@
+// Needed to launch Python file after we collect payload
+const path = require("path");
+var spawn = require("child_process").spawn;
+const homeDir = require("electron").remote.app.getPath("home");
+
 // Capture all the values and pass into simulator run script
 document.getElementById("runSimulator").addEventListener("click", () => {
     let payload = {
@@ -144,4 +149,21 @@ document.getElementById("runSimulator").addEventListener("click", () => {
             }
         }
     }
+
+    // Spawn process, passing in serialized/stringified JSON object
+    // If this doesn't work, we can always just save this as a JSON file and load from the other file
+    var automateRunsProcess = spawn("/usr/bin/python3", [
+        "-u", // Don't buffer output
+        path.join(homeDir, "osu-uwrt", "riptide_software", "src", "riptide_gazebo", "scripts", "automate_runs.py"), // Actual file to exec
+        JSON.stringify(payload) // Pass JSON as command line parameter
+    ]);
+
+    // Log anything we get from stdout or stderr and so on 
+    // Note that we passed in the "don't buffer output" flag when starting process so we will get this all immediately 
+    olProcess.stdout.on("data", (chunk) => { console.log("stdout: " + chunk); });
+    automateRunsProcess.stderr.on("data", (chunk) => { console.log("stderr: " + chunk); });
+    automateRunsProcess.on("close", (code) => {
+        console.log("automate_runs.py exited with code " + code + ".");
+        // TODO: Update UI or something
+    });
 });
