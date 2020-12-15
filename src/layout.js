@@ -32,7 +32,7 @@ for (var key in jsonData) {
         root.appendChild(fieldName);
 
         // Field Input
-        let fieldInput = getElementDisplay(jsonData[key]["fields"][field]);
+        let fieldInput = getElementDisplay(field, jsonData[key]["fields"][field]);
         fieldInput.style.display = "inline";
         if (fieldInput != null)
             root.appendChild(fieldInput);
@@ -56,24 +56,28 @@ Handles the following types:
 - string: Self-explanatory
 - props: Special stuff
 */
-function getElementDisplay(json) {
+function getElementDisplay(id, json) {
+    console.log("id: " + id);
     let parent = document.createElement("div");
     let input;
     switch (json.type) {
         case "string":
             input = document.createElement("input");
             input.value = json.default;
+            input.id = id;
             parent.appendChild(input);
             break;
         case "number":
             input = document.createElement("input");
             input.value = json.default;
+            input.id = id;
             parent.appendChild(input);
             break;
         case "array-of-number": 
             for (let i = 0; i < json.size; i++) {
                 input = document.createElement("input");
                 input.value = json.default[i];
+                input.id = "" + id + i;
                 parent.appendChild(input);
             }
             break;
@@ -85,10 +89,12 @@ function getElementDisplay(json) {
                 option.textContent = json.options[i];
                 select.appendChild(option);
             }
+            select.id = id;
             parent.appendChild(select);
             break;
         case "props":
             for (let prop in json.props) {
+                parent.appendChild(document.createElement("br"));
                 parent.appendChild(document.createElement("br"));
                 let header = document.createElement("h2");
                 header.textContent = json.props[prop].name;
@@ -104,6 +110,7 @@ function getElementDisplay(json) {
                     for (let j = 0; j < 6; j++) {
                         let posScalar = document.createElement("input");
                         posScalar.value = json.props[prop].default[i][j];
+                        posScalar.id = "" + id + prop + i + j;
                         parent.appendChild(posScalar);
                     }
                 }
