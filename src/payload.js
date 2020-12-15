@@ -1,7 +1,9 @@
 // Needed to launch Python file after we collect payload
-const path = require("path");
 var spawn = require("child_process").spawn;
-const homeDir = require("electron").remote.app.getPath("home");
+
+// Defined elsewhere; needed so ESLint doesn't throw a fit 
+/* global path */
+/* global homeDir */
 
 // Capture all the values and pass into simulator run script
 document.getElementById("runSimulator").addEventListener("click", () => {
@@ -160,7 +162,7 @@ document.getElementById("runSimulator").addEventListener("click", () => {
 
     // Log anything we get from stdout or stderr and so on 
     // Note that we passed in the "don't buffer output" flag when starting process so we will get this all immediately 
-    olProcess.stdout.on("data", (chunk) => { console.log("stdout: " + chunk); });
+    automateRunsProcess.stdout.on("data", (chunk) => { console.log("stdout: " + chunk); });
     automateRunsProcess.stderr.on("data", (chunk) => { console.log("stderr: " + chunk); });
     automateRunsProcess.on("close", (code) => {
         console.log("automate_runs.py exited with code " + code + ".");
